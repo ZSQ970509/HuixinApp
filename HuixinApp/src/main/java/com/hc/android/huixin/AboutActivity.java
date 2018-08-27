@@ -15,7 +15,6 @@ public class AboutActivity extends Activity {
 		setContentView(R.layout.activity_about);
 		initView();
 	}
-
 	private void initView() {
 		String title = getIntent().getStringExtra("title");
 		TextView titleView = (TextView) findViewById(R.id.title);
