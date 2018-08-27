@@ -1,0 +1,105 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+
+
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Black.NoTitleBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+
+
+
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <!-- Spinner theme. -->
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">false</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 背景透明 -->
+        <!-- <item name="android:windowBackground">@color/listview_page_color</item> -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+    </style>
+
+    <style name="ButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@drawable/selector_login_btn_color</item>
+        <item name="android:background">@drawable/selector_login_btn_bg</item>
+    </style>
+
+    <style name="ButtonDefaultStyle" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@drawable/selector_default_btn_color</item>
+        <item name="android:background">@drawable/selector_default_btn</item>
+    </style>
+
+    <style name="ButtonRedStyle" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@drawable/selector_default_btn_color</item>
+        <item name="android:background">@drawable/selector_red_btn</item>
+    </style>
+
+    <style name="ButtonDialogCanceltStyle" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/selector_dialog_cancel</item>
+    </style>
+
+    <style name="ButtonTowerCranePassStyle" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@drawable/selector_tower_crane_pass_btn_color</item>
+        <item name="android:background">@drawable/selector_btn_tower_crane_pass</item>
+    </style>
+
+    <style name="ButtonTowerCraneDeniedStyle" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@drawable/selector_tower_crane_denied_btn_color</item>
+        <item name="android:background">@drawable/selector_btn_tower_crane_denied</item>
+    </style>
+
+    <style name="CheckBoxStyle" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/select_default_checkbox</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <!--通用的Spinner风格-->
+    <style name="StyleSpCommon">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">5dip</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="Theme_Transparent" parent="@android:Theme.DeviceDefault.Light.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <!--跑马灯TextView的风格-->
+    <style name="tvRollStyle">
+        <item name="android:focusable">false</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:singleLine">true</item>
+    </style>
+</resources>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context="com.king.photo.activity.LadderControlDeviceScanMessage" >
+
+    <RelativeLayout
+        android:id="@+id/main_top"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="#363a52"
+        android:gravity="center_vertical" >
+
+        <ImageButton
+            android:id="@+id/regulatory_back"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/btn_back"
+            android:textColor="@android:color/white" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/bind_driver_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="梯控设备查询"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:text="@string/humen_name"
+                android:textColor="#737585" />
+
+            <EditText
+                android:id="@+id/edit_humen_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/edit_background"
+                android:hint="请输入人员姓名"
+                android:paddingLeft="5dip"
+                android:singleLine="true"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+             android:layout_height="0dp"
+            android:layout_weight="1.5"
+             android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:text="@string/humen_idnum"
+                android:textColor="#737585" />
+
+           <EditText
+                android:id="@+id/edit_humen_idnum"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/edit_background"
+                android:hint="请输入人员身份证号"
+                android:paddingLeft="5dip"
+                android:singleLine="true"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+             android:layout_height="0dp"
+            android:layout_weight="1.5"
+             android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:text="@string/humen_qualification_certificate"
+                android:textColor="#737585" />
+
+           <EditText
+                android:id="@+id/edit_humen_qualification_certificate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/edit_background"
+                android:hint="请输入人员资格证号"
+                android:paddingLeft="5dip"
+                android:singleLine="true"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+             android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:text="@string/humen_phone"
+                android:textColor="#737585" />
+
+            <EditText
+                android:id="@+id/edit_humen_phone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/edit_background"
+                android:hint="请输入人员手机号"
+                android:paddingLeft="5dip"
+                android:singleLine="true"
+                android:textSize="15dp" />
+
+                <requestFocus />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+             android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:text="@string/login_pass"
+                android:textColor="#737585" />
+
+            <EditText
+                android:id="@+id/edit_login_pass"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/edit_background"
+                android:hint="请输入登录密码"
+                android:paddingLeft="5dip"
+                android:singleLine="true"
+                android:textSize="15dp" />
+
+                <requestFocus />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/edit_open_linearlayout"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+             android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:text="@string/open_pass"
+                android:textColor="#737585" />
+
+            <EditText
+                android:id="@+id/edit_open_pass"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/edit_background"
+                android:hint="请输入开锁密码"
+                android:paddingLeft="5dip"
+                android:singleLine="true"
+                android:textSize="15dp" />
+
+                <requestFocus />
+        </LinearLayout>
+		<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+             android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_add_humen"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dip"
+                android:layout_marginTop="10dp"
+                android:text="@string/add_securityofficer"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

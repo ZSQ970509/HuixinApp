@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_setting_acount"
+    android:minHeight="45dp"
+    android:orientation="vertical" >
+
+   
+    <TextView
+        android:id="@+id/concode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="23dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="电话"
+        android:textColor="#737586"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/ipid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="23dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="ipid"
+        android:textColor="#737586"
+        android:textSize="15dp" />
+
+</LinearLayout>

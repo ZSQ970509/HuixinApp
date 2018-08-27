@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnItemCommonShowInfo"
+        android:layout_width="100dip"
+        android:layout_height="45dip"
+        android:layout_margin="10dip"
+        android:layout_gravity="center"
+        android:background="@drawable/selector_login_btn_bg"
+        android:text="发送"
+        android:textColor="@android:color/white" />
+</LinearLayout>

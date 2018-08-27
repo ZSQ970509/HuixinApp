@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/whole_region"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/listview_page_color"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/list_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:background="@color/white"
+        android:orientation="vertical" >
+
+         <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/driver_boder_bg"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="185dip"
+     
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="条例名称"
+            android:textColor="@color/black"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/job"
+             
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:text="条例详情"
+            android:textColor="@color/black"
+            android:textSize="20dip" />
+        
+        
+        
+    </LinearLayout>
+        
+        
+        
+        
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false" >
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pagebtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <include    layout="@layout/pagebutton" />
+    </LinearLayout>
+
+</LinearLayout>

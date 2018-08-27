@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/actionbar_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="工程名称："
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/installOpenUploadProjectNameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="工程名称：汇川科技测试工程"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="工单选择："
+            android:textColor="@android:color/black" />
+
+        <Spinner
+            android:id="@+id/installOpenUploadWordOrderSp"
+            style="@style/StyleSpCommon"
+            android:layout_width="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/installOpenUploadBtn"
+        android:layout_width="150dip"
+        android:layout_height="45dip"
+        android:layout_gravity="center"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/selector_login_btn_bg"
+        android:text="拍   照"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+</LinearLayout>

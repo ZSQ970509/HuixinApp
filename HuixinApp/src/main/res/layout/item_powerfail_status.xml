@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_setting_acount"
+    android:minHeight="45dp"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/item_position"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_weight="0.64"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/item_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="0.3"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/item_power_fail_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+        android:layout_weight="0.3"
+        android:text="" />
+ <TextView
+        android:id="@+id/item_power_net_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="0.3"
+        android:text="" />
+</LinearLayout>

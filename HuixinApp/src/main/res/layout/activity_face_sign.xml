@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/take_photo_top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/main_top_bg"
+        android:gravity="center_vertical"
+        android:padding="10dip" >
+
+        <ImageButton
+            android:id="@+id/regulatory_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingBottom="5dip"
+            android:paddingLeft="5dip"
+            android:paddingRight="50dip"
+            android:paddingTop="5dip"
+            android:src="@drawable/btn_back_bg" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/title_face_sign"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_check_face"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="检测人脸" />
+
+            <Button
+                android:id="@+id/btn_analysis_face"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分析人脸" />
+
+            <Button
+                android:id="@+id/btn_add_face"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="增加人脸(无)" />
+
+            <Button
+                android:id="@+id/btn_contrast_face"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="对比人脸" />
+
+            <Button
+                android:id="@+id/btn_add_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="增加人员" />
+
+            <Button
+                android:id="@+id/btn_del_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除人员" />
+
+            <Button
+                android:id="@+id/btn_add_face_to_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="增加个人的人员" />
+
+            <Button
+                android:id="@+id/btn_del_face_to_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除个人的人员" />
+
+            <Button
+                android:id="@+id/btn_Set_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置人员信息" />
+
+            <Button
+                android:id="@+id/btn_Get_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取人员信息" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_Create_Faceset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="创建人脸集" />
+
+            <Button
+                android:id="@+id/btn_Del_Faceset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除人脸集" />
+
+            <Button
+                android:id="@+id/btn_Add_Face_To_Faceset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="人脸集增加人脸" />
+
+            <Button
+                android:id="@+id/btn_Del_Face_To_Faceset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="人脸集删除人脸" />
+            
+            
+              <Button
+                android:id="@+id/btn_Set_Faceset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置人脸集的信息" />
+
+            <Button
+                android:id="@+id/btn_Get_Faceset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取人脸集的信息" />
+            
+                    <Button
+                android:id="@+id/btn_Add_Group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="创建组" />
+
+            <Button
+                android:id="@+id/btn_Del_Group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除组" />
+            
+            
+               <Button
+                android:id="@+id/btn_Add_Person_To_Group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="组增加人员" />
+
+            <Button
+                android:id="@+id/btn_Del_Person_To_Group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="组删除人员" />
+            
+         
+            
+        </LinearLayout>
+        
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+                         <Button
+                android:id="@+id/btn_Set_Group_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置组信息" />
+
+            <Button
+                android:id="@+id/btn_Get_Group_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取组信息" />
+                   <Button
+                android:id="@+id/btn_Get_Img_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取一张图片的信息" />
+                   
+             <Button
+                android:id="@+id/btn_Get_Face_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取人脸的信息" />   
+                   
+              <Button
+                android:id="@+id/btn_Get_PersonList_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取得人员列表" /> 
+                
+              <Button
+                android:id="@+id/btn_Get_FacesetList_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取得人脸集列表" /> 
+              
+              <Button
+                android:id="@+id/btn_Get_GroupList_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取得组列表" /> 
+                <Button
+                android:id="@+id/btn_Get_Session_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取得会话信息" /> 
+         </LinearLayout>
+       
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.hc.android.huixin"
+        minSdkVersion 15
+        targetSdkVersion 22
+        aaptOptions {
+            cruncherEnabled = false
+            useNewCruncher = false
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+    productFlavors {
+        // app1
+        app1 {
+
+            // 设置applicationId（这里很重要，两个相同applicationId的apk不同同时安装在同一台Android手机中）
+            applicationId "com.hc.android.huixin"
+            // 自动生成@string/app_name为demo
+            resValue "string","app_name","汇川智能"
+            resValue "string","provider_name","downloads.com.hc.android.huixin"
+            resValue "string","baidu_key","zn3eRZ6f6760dBwGQ47x7i7EyOzsD2ZZ"
+            // 定义app_icon字段，在AndroidManifest.xml文件中用到
+            manifestPlaceholders = [app_icon : "@drawable/icon"]
+        }
+        // app2
+        app2 {
+            // 解释同app1
+            applicationId "com.hc.android.huixin1"
+            resValue "string","app_name","汇川智能()"
+            resValue "string","provider_name","downloads.com.hc.android.huixin1"
+            resValue "string","baidu_key","5sjeSgUlYpHlmWyiKdWyGeLuQo0qNOFZ"
+            manifestPlaceholders = [app_icon : "@drawable/icon"]
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+ext {
+    okhttpVersion = "3.8.0"
+    retrofitVersion = "2.3.0"
+    supportLibraryVersion = "22.+"
+}
+dependencies {
+    compile "com.android.support:appcompat-v7:${supportLibraryVersion}"
+    compile files('libs/BaiduLBS_Android.jar')
+    compile files('libs/barcode_core.jar')
+    compile files('libs/GetuiSDK2.9.3.0.jar')
+    compile files('libs/photoview-library-1.2.2.jar')
+    compile files('libs/tyjx.jar')
+    compile files('libs/universal-image-loader-1.9.5.jar')
+    compile files('libs/okhttputils-2.6.2.jar')
+    compile files('libs/sun.misc.BASE64Decoder.jar')
+    compile files('libs/fisc_zny_facerecognition_http_1.1.3.jar')
+    compile files('libs/ffcs-android-client-api-1.02.jar')
+    compile "com.squareup.okhttp3:okhttp:${okhttpVersion}"
+    compile "com.squareup.okhttp3:okhttp-urlconnection:${okhttpVersion}"
+    compile "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}"
+    compile('com.jakewharton:butterknife:8.8.1') {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile "com.android.support:recyclerview-v7:${supportLibraryVersion}"
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    compile 'com.google.code.gson:gson:2.2.2'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.classic.adapter:commonadapter:2.0'
+//    compile 'com.sunfusheng:marqueeview:1.3.3'
+}

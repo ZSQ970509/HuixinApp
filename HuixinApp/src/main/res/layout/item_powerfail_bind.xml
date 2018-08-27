@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_setting_acount"
+    android:minHeight="45dp"
+    android:orientation="horizontal" >
+
+    <CheckBox
+        android:id="@+id/item_cb"
+        style="@style/CheckBoxStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center_vertical" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/item_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textColor="#787586"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/item_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textColor="#787586"
+            android:gravity="center_vertical" />
+        
+        
+         <TextView
+             android:id="@+id/item_sn"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_weight="0.5"
+             android:gravity="center_vertical" />
+        
+    </LinearLayout>
+
+</LinearLayout>

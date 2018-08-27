@@ -1,0 +1,86 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/main_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#363a52" >
+
+        <ImageButton
+            android:id="@+id/regulatory_back"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:src="@drawable/btn_back"
+            android:textColor="@android:color/white" />
+   		<TextView
+            android:id="@+id/camera_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="拍照"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+		<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right|center_vertical"
+        android:background="#363a52"
+         >
+   		 <ImageButton
+   		    android:id="@+id/camera_change"
+   		    android:layout_width="45dip"
+   		    android:layout_height="45dip"
+   		    android:layout_marginRight="10dp"
+   		    android:background="@android:color/transparent"
+   		    android:src="@drawable/btn_change"
+   		    android:textColor="@android:color/white" />
+	</LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Ll_photo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7.5"
+        android:background="@android:color/black"
+        android:gravity="center_horizontal" >
+
+        <FrameLayout
+            android:id="@+id/fl_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <com.hc.android.laddercontrolcamera.CameraSurfaceView
+                android:id="@+id/cameraSurfaceView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_take_photo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:background="#000"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_take_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_btn_center" />
+    </LinearLayout>
+
+</LinearLayout>

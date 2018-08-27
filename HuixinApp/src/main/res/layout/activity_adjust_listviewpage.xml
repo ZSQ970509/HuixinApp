@@ -1,0 +1,34 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/whole_region"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/listview_page_color"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/list_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:fadeScrollbars="false" >
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pagebtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        
+        android:orientation="vertical" >
+
+        <include layout="@layout/pagebutton_adjust" />
+    </LinearLayout>
+
+</RelativeLayout>

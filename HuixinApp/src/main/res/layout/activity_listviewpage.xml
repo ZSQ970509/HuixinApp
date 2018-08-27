@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/whole_region"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical" >
+   <!--  android:background="@color/listview_page_color" -->
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/dialog_top"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="   请选择条例" />
+
+    <LinearLayout
+        android:id="@+id/list_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false" >
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pagebtn"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/dialog_bottom"
+        android:orientation="vertical" >
+
+        <include layout="@layout/pagebutton" />
+    </LinearLayout>
+
+</LinearLayout>

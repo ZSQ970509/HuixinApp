@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/alertdialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/dialog_top"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="请选择安全监管规范条例！" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="417dp"
+        android:layout_weight="0.55"
+        android:background="#ffffff"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bottom"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_search"
+            style="@style/ButtonDialogCanceltStyle"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:text="搜索"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_lastpage"
+            style="@style/ButtonDialogCanceltStyle"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:text="上一页"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="@style/ButtonDialogCanceltStyle"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:text="取消"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

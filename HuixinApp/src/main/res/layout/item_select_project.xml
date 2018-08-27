@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    android:layout_margin="2dp"
+    android:background="@drawable/touch_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvWeiHuProjectName"
+        style="@style/tvRollStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="项目名称"
+        android:textColor="#000000"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvWeiHuProjectName"
+        android:layout_below="@+id/tvWeiHuProjectName"
+        android:layout_marginTop="8dp"
+        android:text="故障来源："
+        android:textColor="#656d78" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="8dp"
+        android:text="申报时间："
+        android:textColor="#656d78" />
+
+    <TextView
+        android:id="@+id/tvWeiHuLong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_marginRight="5dp"
+        android:text="距离"
+        android:textColor="#4a89dc" />
+
+    <TextView
+        android:id="@+id/tvWeiErrorNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView5"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_alignEnd="@+id/tvWeiHuLong"
+        android:layout_alignRight="@+id/tvWeiHuLong"
+        android:text="2"
+        android:textColor="#4a89dc" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvWeiErrorNum"
+        android:layout_toLeftOf="@+id/tvWeiErrorNum"
+        android:layout_toStartOf="@+id/tvWeiErrorNum"
+        android:text="故障设备数量："
+        android:textColor="#4a89dc" />
+
+    <TextView
+        android:id="@+id/tvWeiHuError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4"
+        android:layout_toRightOf="@+id/textView4"
+        android:text=""
+        android:textColor="#656d78" />
+
+    <TextView
+        android:id="@+id/tvWeiHuTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_toEndOf="@+id/textView5"
+        android:layout_toRightOf="@+id/textView5"
+        android:text=""
+        android:textColor="#656d78" />
+</RelativeLayout>

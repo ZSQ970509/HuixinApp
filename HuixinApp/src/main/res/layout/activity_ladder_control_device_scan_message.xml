@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context="com.king.photo.activity.LadderControlDeviceScanMessage" >
+
+    <RelativeLayout
+        android:id="@+id/main_top"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="#363a52"
+        android:gravity="center_vertical" >
+
+        <ImageButton
+            android:id="@+id/regulatory_back"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/btn_back"
+            android:textColor="@android:color/white" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/bind_driver_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="梯控设备查询"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:gravity="center"
+        android:layout_marginTop="20dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/driver_num_search"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/text_six_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3.8"
+            android:background="@drawable/edit_background"
+            android:hint="@string/edit_driver_num"
+            android:singleLine="true"
+            android:textColor="@color/edit_c9c9c9"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/driver_search_button"
+            style="@style/ButtonStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1.3"
+            android:layout_height="26dp"
+            android:layout_marginLeft="5dp"
+            android:text="@string/driver_search" />
+
+        <Button
+            android:id="@+id/driver_scan_button"
+            style="@style/ButtonStyle"
+           android:layout_width="0dp"
+            android:layout_weight="1.7"
+            android:layout_height="26dp"
+            android:layout_marginLeft="5dp"
+            android:text="@string/driver_scan" />
+    </LinearLayout>
+
+</LinearLayout>

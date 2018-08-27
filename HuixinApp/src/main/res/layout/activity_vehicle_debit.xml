@@ -1,0 +1,512 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vechicle_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:id="@+id/vechicle_layout_top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#363a52"
+        android:gravity="center_vertical"
+        android:padding="10dip" >
+
+        <ImageButton
+            android:id="@+id/vehicle_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingBottom="5dip"
+            android:paddingLeft="5dip"
+            android:paddingRight="50dip"
+            android:paddingTop="5dip"
+            android:src="@drawable/btn_back_bg" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="车辆登记"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/send_Vehicle_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/vechicle_layout_top"
+        android:visibility="visible" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/boder_bg" 
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="地点：" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/vehiclesite"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                     android:textColor="@color/black"
+                     />
+            </LinearLayout>
+    <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                 android:background="@drawable/boder_bg" 
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="车牌号：" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/carnum"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                     android:textColor="@color/black"
+                     />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                          android:background="@drawable/boder_bg" 
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="借车人姓名：" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/debitname"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                          android:background="@drawable/boder_bg" 
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="借车人驾驶证号："
+                    android:textColor="@color/black" >
+
+                </TextView>
+
+                <EditText
+                    android:id="@+id/licensenum"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                          android:background="@drawable/boder_bg" 
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="身份证号：" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/idcard"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                          android:background="@drawable/boder_bg" 
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="电话号码：" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/debittel"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                          android:background="@drawable/boder_bg" 
+                android:orientation="horizontal" >
+
+                <TextView
+                     android:id="@+id/text_time"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="借出时间：" >
+                </TextView>
+
+                <Button
+                    android:id="@+id/selecttime"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="时间" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                          android:background="@drawable/boder_bg" 
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/text_km"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="外借时公里数：" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/outkm"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                     android:digits="1234567890."  
+                    
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                          android:background="@drawable/boder_bg" 
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/text_oil"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="外借时车辆油表：" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/outoil"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                     android:digits="1234567890."  
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                          android:background="@drawable/boder_bg" 
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/text_situation"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="外借时车辆情况：" >
+
+                </TextView>
+
+                <EditText
+                    android:id="@+id/outsituation"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/takephoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点击拍照" />
+                 </LinearLayout>
+   
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/show_Vehicle_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/vechicle_layout_top"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/photo_image"
+                android:layout_width="200dip"
+                android:layout_height="200dip"
+                android:scaleType="fitCenter" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="地点：" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txt_vehiclesite"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="借车人姓名：" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txt_debitname"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="借车人驾驶证号：" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txt_licensenum"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="身份证号：" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txt_idcard"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="电话号码：" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txt_debittel"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="车牌号：" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txt_carnum"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/Text_outTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="借出时间：" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txt_outtime"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    
+                    android:textColor="@color/black"
+                    android:text="时间" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/Text_outkm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="外借时公里数：" >
+                </TextView>
+
+                <TextView     
+                
+                    android:id="@+id/txt_outkm"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView    
+                    android:id="@+id/Text_outoil"
+                 	android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="外借时车辆油表：" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txt_outoil"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                          android:id="@+id/Text_outsituation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="外借时车辆情況：" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txt_Out_Situation"
+                    android:textColor="@color/black"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+       
+    <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+                
+          <Button
+                android:id="@+id/go_on"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="继续拍照" >   </Button>
+                  <Button
+                android:id="@+id/send_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="提交当前照片" >   </Button>
+        
+  			<Button
+                android:id="@+id/send_vehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="确认发送" >
+            </Button>
+            </LinearLayout>
+          
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

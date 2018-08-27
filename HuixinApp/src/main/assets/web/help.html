@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no; width=device-width;">
+<script src="js/jqmini.js"></script>
+<title>帮助文档</title>
+<style>
+body{  margin:0; padding:0; height:auto; background-color:#ffffff;}
+div,li,span,p,a,img{-webkit-tap-highlight-color:rgba(0,0,0,0);-moz-tap-highlight-color:rgba(0,0,0,0);-ms-tap-highlight-color:rgba(0,0,0,0);-o-tap-highlight-color:rgba(0,0,0,0);tap-highlight-color:rgba(0,0,0,0);}
+.box{ background-color:#ffffff;  color: #000000;padding:5px 20px 5px 30px;}
+p{ padding:0px; margin:0px;font-size: 16px;line-height: 1.5; text-indent:2em;}
+h2{font-weight: normal;font-size: 16px;margin: 15px 0 10px 0;text-decoration: underline; font-weight:bold}
+h3{font-weight: normal;font-size: 14px;margin: 6px 0;}
+ol{font-size: 16px;list-style-type: decimal;-webkit-margin-before: 1em;-webkit-margin-after: 0em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;padding:0px 0px 5px 15px;margin: 0}
+li{margin: 0;padding: 0; }
+li .result{display: none;}
+ol ol{font-size: 16px;padding-left:1.3em}
+</style>
+<script language="javascript">
+$(document).ready(function(){
+	$("h2[name='resulttitle']").click(function(){
+		var thisre=$(this).siblings(".result");
+		if(thisre.css("display")=="block"){
+			$(".result").slideUp(200);
+		}else{
+			$(".result").slideUp(200);
+			$(this).siblings(".result").slideDown(200);
+		}
+	});
+})
+</script>
+</head>
+<body>
+<div class="box">
+    <ol>
+        <li>
+            <h2 name="resulttitle">汇川智能介绍</h2>
+            <div class="result" name="result">
+                <p>汇川智能是福建汇川数码技术科技有限公司自主研发的手机app。该app包括执法抓拍、考勤查询、见证拍照等功能模块。</p>
+            </div>
+        </li>
+        <li>
+            <h2 name="resulttitle">执法抓拍介绍</h2>
+            <div class="result" name="result">
+                <p>执法抓拍功能模块操作流程：进入监控抓拍界面，选择工程名称，输入拍照部位，点击拍照按钮，获取正确的照片，确认信息后提交即可。这样就可以在web系统的照片墙上看到这些照片和信息。</p>
+            </div>
+        </li>
+    </ol>
+</div>
+</body>
+</html>
