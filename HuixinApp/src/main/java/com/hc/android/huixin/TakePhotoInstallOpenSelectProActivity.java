@@ -139,6 +139,9 @@ public class TakePhotoInstallOpenSelectProActivity extends BaseActivity {
                     for (int i = 0; i < pageSize && i < mProjectListDataSum.size(); i++) {
                         mProjectListData.add(mProjectListDataSum.get(i));
                     }
+
+
+
                 }
                 mAdapter.notifyDataSetChanged();
                 pageTotal = (Integer.parseInt(js.getTotalcount()) + pageSize - 1) / pageSize;

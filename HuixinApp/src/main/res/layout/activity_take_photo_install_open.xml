@@ -289,7 +289,7 @@
                 android:layout_width="150dip"
                 android:layout_height="45dip"
                 android:background="@drawable/selector_login_btn_bg"
-                android:text="上   传"
+                android:text="提   交"
                 android:layout_marginTop="50dp"
                 android:textColor="@android:color/white" />
         </LinearLayout>

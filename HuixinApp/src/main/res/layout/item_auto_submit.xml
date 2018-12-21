@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y120"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/item_Auto_Submit_TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/x35"
+        android:layout_toLeftOf="@+id/item_Auto_Submit_CheckBox"
+        android:layout_toStartOf="@+id/item_Auto_Submit_CheckBox"
+        android:text="TextViewTextViewTextViewTextViewTextViewTextView"
+        android:textColor="#000"
+        android:singleLine="true"
+        android:textSize="@dimen/y32" />
+
+
+    <CheckBox
+        android:id="@+id/item_Auto_Submit_CheckBox"
+        android:layout_width="@dimen/x32"
+        android:layout_height="@dimen/y32"
+        android:background="@drawable/checkboxblue"
+        android:layout_centerVertical="true"
+        android:button="@null"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/x35"/>
+
+</RelativeLayout>

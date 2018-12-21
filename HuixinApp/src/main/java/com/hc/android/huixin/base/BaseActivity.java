@@ -76,7 +76,11 @@ public abstract class BaseActivity extends Activity {
         });
         mTvRight = (TextView) findViewById(R.id.actionbar_right_tv);
     }
-
+    protected void setToolBarRight(int resId, View.OnClickListener listener) {
+        mTvRight.setBackgroundResource(resId);
+        mTvRight.setVisibility(View.VISIBLE);
+        mTvRight.setOnClickListener(listener);
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();

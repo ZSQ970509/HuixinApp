@@ -187,7 +187,8 @@ public class TakePhotoInstallOpenInfoActivity extends BaseActivity {
         } else if (result.getResult().equals("1")) {
             showDialogIsToUploadWordOrderAc(result.getMsg());
         } else if (result.getResult().equals("2")) {
-            new AlertDialog.Builder(getActivity()).setTitle("提示")
+            new AlertDialog.Builder(getActivity())
+                    .setTitle("提示")
                     .setMessage("省站信息不全仅保存到HMS平台，是否继续配置？")
                     .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
@@ -221,7 +222,7 @@ public class TakePhotoInstallOpenInfoActivity extends BaseActivity {
                                             } else if (result.getResult().equals("1")) {
                                                 showDialogIsToUploadWordOrderAc(result.getMsg());
                                                 // DefaultDialog.showDialogIsFinish(TakePhotoInstallOpenActivity.this,
-                                                // result.getMsg());
+                                                // result   .getMsg());
                                             } else {
                                                 DefaultDialog.showDialog(getActivity(),
                                                         result.getMsg());
@@ -233,7 +234,9 @@ public class TakePhotoInstallOpenInfoActivity extends BaseActivity {
                                 }
                             }.start();
                         }
-                    }).setCancelable(false).create().show();
+                    }).setCancelable(false)
+                    .create()
+                    .show();
 
         } else if (result.getResult().equals("3")) {
             showDialogIsToUploadWordOrderAc("安装成功，但未开通设备！");

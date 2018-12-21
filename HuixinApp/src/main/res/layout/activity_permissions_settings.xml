@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -35,14 +35,18 @@
             android:textSize="20sp"
             android:textStyle="bold" />
     </RelativeLayout>
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/take_photo_top"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
@@ -143,5 +147,6 @@
         android:textColor="#000000"
         android:layout_alignLeft="@+id/textView11"
         android:layout_alignStart="@+id/textView11" />
-
-</RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

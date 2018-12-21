@@ -76,13 +76,14 @@ public class NetworkApi {
 
     public static final String HOST_URL_UPLOAD_IMAGE = "http://ftp.jsqqy.com:8021";// 正式上传图片
 private static final String HOST_URL = "http://api.jsqqy.com";// 正式
+    //private static final String HOST_URL = "http://10.1.3.33:8093";
 private static final String ATTENDANCE_URL = "http://ad.jsqqy.com/Handler/MobileAppsHandler.ashx";
 
+    //private static final String HOST_URL = "http://10.1.3.201:15066";
     //private static final String HOST_URL = "http://192.168.1.81:25454";
-   //private static final String HOST_URL = "http://10.1.3.201:15066";
     // 车辆登记
     public static final String AD_URL = "http://api.jsqqy.com";
-
+    //public static final String AD_URL = "http://192.168.1.186:5454";
     public static final String BASE_URL = HOST_URL + "/api.ashx?";
     public static final String BASE_URL_NEW = HOST_URL + "/OpenInterface/CameraBindService.ashx?";
     public static final String BASE_URL_TRAJECTORYMAPHANDLER = HOST_URL + "/OpenInterface/TrajectoryMapHandler.ashx?";
@@ -447,7 +448,7 @@ private static final String ATTENDANCE_URL = "http://ad.jsqqy.com/Handler/Mobile
             if (addHumanJson.getString("success").equals("true")) {
                 return "添加操作员成功";
             } else {
-                return "添加操作员失败";
+                return addHumanJson.getString("descript");
             }
             /*}else if(json.getString("state").equals("0")){
                 return json.getString("descript");

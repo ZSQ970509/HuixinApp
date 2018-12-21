@@ -602,6 +602,7 @@ public class TakePhotoInstallOpenActivity extends BaseActivity {
                 dialog.dismiss();
                 JumpAc.toTakePhotoInstallOpenUploadAc(getActivity(), mProData, mSpWordOrder.getSelectedItemPosition(), mAdapterWordOder.getData(), mProTypeId, mProTypeName);
             }
+
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
 
@@ -640,7 +641,7 @@ public class TakePhotoInstallOpenActivity extends BaseActivity {
                 break;
             case R.id.btnInstallOpenTakePhoto:
                 CustomDialog.Builder builder = new CustomDialog.Builder(getActivity());
-                builder.setMessage("是否上传");
+                builder.setMessage("是否提交");
                 builder.setTitle("提示");
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

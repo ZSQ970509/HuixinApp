@@ -6,6 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="11"
+
         android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.NFC" />
@@ -338,6 +339,9 @@
         <activity android:name="com.king.photo.activity.PowerFailDeviceBindMainActivity" />
         <!-- 掉电设备绑定 - 绑定界面 -->
         <activity android:name="com.king.photo.activity.PowerFailDeviceBindScanActivity" />
+        <!-- 掉电设备绑定 - 二维码界面 -->
+        <activity android:name="com.king.photo.activity.PowerFailDeviceBindScanNewActivity" >
+        </activity>
         <!-- 掉电设备绑定 - 二维码界面 -->
         <activity
             android:name="com.hc.andorid.zxing.app.CaptureActivity"
