@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseItemDraggableAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -27,6 +28,7 @@ import com.hc.android.huixin.bean.json.InstallOpenGetProjectListJs;
 import com.hc.android.huixin.network.INetCallback;
 import com.hc.android.huixin.network.NetworkApi;
 import com.hc.android.huixin.util.JumpAc;
+import com.hc.android.huixin.util.ToastHelp;
 import com.hc.android.huixin.view.CustomDialog;
 import com.hc.android.huixin.view.DefaultDialog;
 import com.hc.android.huixin.view.LoadingDialog;
@@ -58,7 +60,8 @@ public class AutoCheckBeforeAcceptanceSelectProjectActivity extends BaseActivity
 	int pageIndex = 1;
 	int pageSize = 10;
 	int pageTotal = 1;
-
+	private String mProTypeId;
+	String token ;
 	@Override
 	protected int getLayoutId() {
 		return R.layout.activity_auto_check_before_acceptance_select_project;
@@ -66,6 +69,8 @@ public class AutoCheckBeforeAcceptanceSelectProjectActivity extends BaseActivity
 
 	@Override
 	protected void initView() {
+		initToken();
+		mProTypeId = getIntent().getIntExtra("ProjectTypeId", 0) + "";
 		setToolBar("自动验收");
 		mAdapter = new BaseItemDraggableAdapter<InstallOpenGetProjectListJs.DataBean, BaseViewHolder>(R.layout.item_install_open_select_pro, mProjectListData) {
 			@Override
@@ -116,6 +121,7 @@ public class AutoCheckBeforeAcceptanceSelectProjectActivity extends BaseActivity
 			@Override
 			public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
 				//JumpAc.toTakePhotoInstallOpenSelectTypeAc(getActivity(), mProjectListData.get(position), mProTypeId, mProTypeName);
+				AutoCheckBeforeAcceptanceSubmitActivity.newInstance(AutoCheckBeforeAcceptanceSelectProjectActivity.this,token,mProjectListData.get(position));
 			}
 		});
 	}
@@ -125,7 +131,24 @@ public class AutoCheckBeforeAcceptanceSelectProjectActivity extends BaseActivity
 		searchProAll(true);
 	}
 
+	private void  initToken(){
+		NetworkApi.getAutoLogin(getActivity(), "111111", "admin", new NetworkApi.NetCall() {
+			@Override
+			public void onSuccess(String result) {
+				try {
+					JSONObject json = new JSONObject(result);
+					token = json.getString("token");
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			}
 
+			@Override
+			public void onFail(String msg) {
+				ToastHelp.showToast(AutoCheckBeforeAcceptanceSelectProjectActivity.this,msg);
+			}
+		});
+	}
 	private void searchProAll(boolean isUploadLocation) {
 		pageIndex = 1;
 		pageSize = 10;
@@ -133,7 +156,7 @@ public class AutoCheckBeforeAcceptanceSelectProjectActivity extends BaseActivity
 		mProjectListData.clear();
 		String proName = mEdtProName.getText().toString();
 		showLoadDialog("正在加载中...");
-		/*NetworkApi.getCommonWorkProjectList(getActivity(), mProTypeId, proName, pageIndex, pageSize,isUploadLocation, new NetworkApi.NetCall() {
+		NetworkApi.getCommonWorkProjectList(getActivity(), mProTypeId, proName, pageIndex, pageSize,isUploadLocation, new NetworkApi.NetCall() {
 			@Override
 			public void onSuccess(String result) {
 				dismissLoadDialog();
@@ -156,7 +179,7 @@ public class AutoCheckBeforeAcceptanceSelectProjectActivity extends BaseActivity
 				showToast(msg);
 				finishRefreshAndLoadMore();
 			}
-		});*/
+		});
 	}
 	private void searchPro() {
 		for (int i = (pageIndex - 1) * pageSize; i < pageIndex * pageSize && i < mProjectListDataSum.size(); i++) {

@@ -28,6 +28,7 @@ public abstract class BaseActivity extends Activity {
     protected TextView mTvTitle;
     protected ImageView mIvLeft;
     protected TextView mTvRight;
+    protected ImageView mIvRight;
     private Unbinder unbinder;
 
     /**
@@ -75,10 +76,11 @@ public abstract class BaseActivity extends Activity {
             }
         });
         mTvRight = (TextView) findViewById(R.id.actionbar_right_tv);
+        mIvRight = (ImageView) findViewById(R.id.actionbar_right_iv);
     }
     protected void setToolBarRight(int resId, View.OnClickListener listener) {
-        mTvRight.setBackgroundResource(resId);
-        mTvRight.setVisibility(View.VISIBLE);
+        mIvRight.setBackgroundResource(resId);
+        mIvRight.setVisibility(View.VISIBLE);
         mTvRight.setOnClickListener(listener);
     }
     @Override

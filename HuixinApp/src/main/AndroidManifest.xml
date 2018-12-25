@@ -514,6 +514,10 @@
         <activity android:name=".DisassembleSelectTypeActivity"/>
         <activity android:name=".DisassembleInfoActivity"/>
         <activity android:name=".DisassembleUploadActivity"/>
+        <activity android:name="com.king.photo.activity.AutoCheckBeforeAcceptanceSelectProjectActivity"/>
+        <activity android:name="com.king.photo.activity.AutoCheckBeforeAcceptanceSubmitActivity"/>
+        <activity android:name="com.king.photo.activity.AutoCheckBeforeAcceptanceHistoryActivity"/>
+        <activity android:name="com.king.photo.activity.AutoCheckBeforeAcceptanceResultActivity"/>
         <activity
             android:name="com.hc.android.huixin.PermissionsSettingsActivity"
             android:label="@string/app_name"

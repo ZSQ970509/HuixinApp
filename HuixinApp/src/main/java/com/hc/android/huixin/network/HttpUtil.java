@@ -89,6 +89,31 @@ public class HttpUtil {
 		try {
 			httpclient = getHttpClient();
 			HttpGet httpRequest = new HttpGet(url);
+
+			httpResponse = httpclient.execute(httpRequest);
+			if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				strResult = EntityUtils.toString(httpResponse.getEntity());
+			}
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (httpclient != null) {
+				httpclient.getConnectionManager().shutdown();
+			}
+		}
+
+		return strResult;
+	}
+	public static String getFromUrlNoLogToken(String url,String token) {
+		String strResult = "";
+		HttpClient httpclient = null;
+		HttpResponse httpResponse;
+		try {
+			httpclient = getHttpClient();
+			HttpGet httpRequest = new HttpGet(url);
+			httpRequest.addHeader("Authorization","Bearer "+token);
 			httpResponse = httpclient.execute(httpRequest);
 			if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 				strResult = EntityUtils.toString(httpResponse.getEntity());
@@ -141,6 +166,31 @@ public class HttpUtil {
 		HttpClient httpclient = null;
 		try {
 			HttpPost httpRequest = new HttpPost(url);
+			httpRequest.setEntity(new StringEntity(data, HTTP.UTF_8));//StringEntity发送的是json格式的数据
+			httpclient = getHttpClient();
+			HttpResponse httpResponse = httpclient.execute(httpRequest);
+			if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				strResult = EntityUtils.toString(httpResponse.getEntity());
+			}
+		} catch (Exception e) {
+			return e.toString();
+		}
+		finally {
+			if (httpclient != null) {
+				httpclient.getConnectionManager().shutdown();
+			}
+		}
+		return strResult;
+	}
+	/**
+	 * json格式的post请求带token
+	 */
+	public static String postToUrlNoLogToken(String url, String data, String token) {
+		String strResult = "";
+		HttpClient httpclient = null;
+		try {
+			HttpPost httpRequest = new HttpPost(url);
+			httpRequest.addHeader("Authorization","Bearer "+token);
 			httpRequest.setEntity(new StringEntity(data, HTTP.UTF_8));//StringEntity发送的是json格式的数据
 			httpclient = getHttpClient();
 			HttpResponse httpResponse = httpclient.execute(httpRequest);
