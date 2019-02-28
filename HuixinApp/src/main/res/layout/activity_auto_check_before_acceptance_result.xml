@@ -13,6 +13,7 @@
 
         <TextView
             android:id="@+id/textView_Auto_Result_Project"
+            style="@style/tvRollStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -95,7 +96,7 @@
             android:textSize="@dimen/y26" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/textView_Auto_Result_Call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -115,7 +116,7 @@
         android:background="#ccc" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y150"
+        android:layout_height="@dimen/y120"
         android:background="#fff">
 
 
@@ -154,6 +155,10 @@
             android:gravity="center"
             android:text="云台" />
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x2"
+        android:background="#ccc" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_Auto_Result_Driver_List"
         android:layout_width="match_parent"

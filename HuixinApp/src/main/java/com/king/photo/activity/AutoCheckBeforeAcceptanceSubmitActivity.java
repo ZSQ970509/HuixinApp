@@ -2,15 +2,12 @@ package com.king.photo.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseItemDraggableAdapter;
@@ -24,12 +21,10 @@ import com.hc.android.huixin.bean.json.InstallOpenGetProjectListJs;
 import com.hc.android.huixin.network.NetworkApi;
 import com.hc.android.huixin.util.ToastHelp;
 import com.king.photo.model.AutoDriviceModel;
-import com.king.photo.model.FullImageNodeModel;
+import com.king.photo.model.AutoSubmitModel;
+import com.king.photo.model.AutoResultModel;
+import com.onesafe.util.RecyclerViewUnderLineUtil;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,6 +45,11 @@ public class AutoCheckBeforeAcceptanceSubmitActivity extends BaseActivity {
     Button btnAutoSubmitAcceptance;
     @BindView(R.id.rv_Auto_Submit_Driver_List)
     RecyclerView rvAutoSubmitDriverList;
+
+    BaseItemDraggableAdapter mAdapter;
+    List<Boolean> submitDriviceIsChecked = new ArrayList<>();
+    private List<AutoDriviceModel> mDataList = new ArrayList<>();
+
     private String token;
     private static final String TOKEN = "token";
     private InstallOpenGetProjectListJs.DataBean dataBean;
@@ -73,10 +73,33 @@ public class AutoCheckBeforeAcceptanceSubmitActivity extends BaseActivity {
         setToolBarRight(R.drawable.autohistory, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AutoCheckBeforeAcceptanceHistoryActivity.newInstance(AutoCheckBeforeAcceptanceSubmitActivity.this,token,dataBean);
             }
         });
-
+        mAdapter = new BaseItemDraggableAdapter<AutoDriviceModel, BaseViewHolder>(R.layout.item_auto_submit, mDataList) {
+            @Override
+            protected void convert(BaseViewHolder helper, AutoDriviceModel item) {
+                helper.setText(R.id.item_Auto_Submit_TextView, item.getDevName());
+                CheckBox checkBoxs = helper.getView(R.id.item_Auto_Submit_CheckBox);
+                int position =helper.getLayoutPosition();
+                if (submitDriviceIsChecked.size() > position) {
+                    checkBoxs.setChecked(submitDriviceIsChecked.get(position));
+                } else {
+                    checkBoxs.setChecked(false);
+                    submitDriviceIsChecked.add(checkBoxs.isChecked());
+                }
+            }
+        };
+        rvAutoSubmitDriverList.addItemDecoration(new RecyclerViewUnderLineUtil(getActivity()));
+        rvAutoSubmitDriverList.setAdapter(mAdapter);
+        rvAutoSubmitDriverList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, final int position) {
+                submitDriviceIsChecked.set(position, !submitDriviceIsChecked.get(position));
+                mAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
@@ -84,6 +107,7 @@ public class AutoCheckBeforeAcceptanceSubmitActivity extends BaseActivity {
         token = getIntent().getStringExtra(TOKEN);
         dataBean = (InstallOpenGetProjectListJs.DataBean) getIntent().getSerializableExtra(PRO_BEAN);
         textViewAutoSubmitProject.setText(dataBean.getProjectName());
+        textViewAutoSubmitProject.setSelected(true);
         textViewAutoSubmitInstall.setText("安装情况：" + dataBean.getInstallNum());
         textViewAutoSubmitDistance.setText(dataBean.getActualDistance() + "KM");
         getDrviceList();
@@ -94,33 +118,75 @@ public class AutoCheckBeforeAcceptanceSubmitActivity extends BaseActivity {
     void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_Auto_Submit_Acceptance:
+                List<String> deviceIds = new ArrayList<>();
+                for (int i = 0 ; i<submitDriviceIsChecked.size() ; i++){
+                    if(submitDriviceIsChecked.get(i)){
+                        deviceIds.add(mDataList.get(i).getDevId());
+                    }
+                }
+               if(deviceIds.size() != 0){
 
+                   showLoadDialog("正在加载中...");
+                   NetworkApi.submitAuto(getActivity(), new AutoSubmitModel(dataBean.getProjectId(),deviceIds), token, new NetworkApi.NetCall() {
+                       @Override
+                       public void onSuccess(String result) {
+                           dismissLoadDialog();
+                           if (!result.equals("") && result != null) {
+                               Gson gson = new Gson();
+                               AutoResultModel jsonList = gson.fromJson(result, new TypeToken<AutoResultModel>() {
+                               }.getType());
+                               for (int i = 0; i<submitDriviceIsChecked.size() ; i++){
+                                   submitDriviceIsChecked.set(i,false);
+                               }
+                               mAdapter.notifyDataSetChanged();
+                               AutoCheckBeforeAcceptanceResultActivity.newInstance(AutoCheckBeforeAcceptanceSubmitActivity.this,token,jsonList.getId()+"",dataBean);
+
+                           }
+                       }
+
+                       @Override
+                       public void onFail(String msg) {
+                           dismissLoadDialog();
+                           ToastHelp.showToast(AutoCheckBeforeAcceptanceSubmitActivity.this, msg);
+                       }
+                   });
+               }else{
+                   ToastHelp.showToast(AutoCheckBeforeAcceptanceSubmitActivity.this, "请选择需要验收的设备！");
+               }
                 break;
 
         }
     }
 
+
     private void getDrviceList() {
+        showLoadDialog("正在加载中...");
         NetworkApi.getAutoDeviceList(getActivity(), dataBean.getProjectId(), token, new NetworkApi.NetCall() {
             @Override
             public void onSuccess(String result) {
-                if (!result.equals("")) {
+                dismissLoadDialog();
+                if (!result.equals("") && result != null) {
                     Gson gson = new Gson();
-//                    Type type = new TypeToken<List<AutoDriviceModel>>() {
-//                    }.getType();
-                    List<AutoDriviceModel> jsonList = gson.fromJson(result, new TypeToken<List<AutoDriviceModel>>() {}.getType());
-                    Log.e("111", jsonList.toString());
-                }else{
-                    ToastHelp.showToast(AutoCheckBeforeAcceptanceSubmitActivity.this, "暂无数据");
+                    List<AutoDriviceModel> jsonList = gson.fromJson(result, new TypeToken<List<AutoDriviceModel>>() {
+                    }.getType());
+                    submitDriviceIsChecked.clear();
+                    mDataList.clear();
+                    mDataList.addAll(jsonList);
+                    mAdapter.notifyDataSetChanged();
+
+
+
                 }
-
-
             }
-
             @Override
             public void onFail(String msg) {
+                dismissLoadDialog();
                 ToastHelp.showToast(AutoCheckBeforeAcceptanceSubmitActivity.this, msg);
             }
         });
     }
+
+
+
+
 }

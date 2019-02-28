@@ -10,6 +10,7 @@ import android.support.annotation.StringRes;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public abstract class BaseActivity extends Activity {
     protected ImageView mIvLeft;
     protected TextView mTvRight;
     protected ImageView mIvRight;
+    protected LinearLayout mLLRight;
     private Unbinder unbinder;
 
     /**
@@ -77,11 +79,12 @@ public abstract class BaseActivity extends Activity {
         });
         mTvRight = (TextView) findViewById(R.id.actionbar_right_tv);
         mIvRight = (ImageView) findViewById(R.id.actionbar_right_iv);
+        mLLRight = (LinearLayout) findViewById(R.id.actionbar_right_ll);
     }
     protected void setToolBarRight(int resId, View.OnClickListener listener) {
         mIvRight.setBackgroundResource(resId);
-        mIvRight.setVisibility(View.VISIBLE);
-        mTvRight.setOnClickListener(listener);
+        mLLRight.setVisibility(View.VISIBLE);
+        mLLRight.setOnClickListener(listener);
     }
     @Override
     protected void onDestroy() {

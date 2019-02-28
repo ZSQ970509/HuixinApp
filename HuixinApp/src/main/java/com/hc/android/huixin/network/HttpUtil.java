@@ -190,8 +190,12 @@ public class HttpUtil {
 		HttpClient httpclient = null;
 		try {
 			HttpPost httpRequest = new HttpPost(url);
+
 			httpRequest.addHeader("Authorization","Bearer "+token);
-			httpRequest.setEntity(new StringEntity(data, HTTP.UTF_8));//StringEntity发送的是json格式的数据
+			httpRequest.setHeader("content-type", "application/json");
+			StringEntity params = new StringEntity(data,HTTP.UTF_8);
+			//params.setContentType("application/json;charset=UTF-8");
+			httpRequest.setEntity(params);//StringEntity发送的是json格式的数据
 			httpclient = getHttpClient();
 			HttpResponse httpResponse = httpclient.execute(httpRequest);
 			if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {

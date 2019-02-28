@@ -1,10 +1,8 @@
 package com.hc.android.huixin;
 
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.hc.android.huixin.base.BaseActivity;
@@ -19,7 +17,7 @@ import butterknife.OnClick;
 /**
  * 安装开通选择类型页面
  */
-public class TakePhotoInstallOpenSelectTypeActivity extends BaseActivity {
+public class OpeningAndAcceptanceActivity extends BaseActivity {
     @BindView(R.id.SelectTypeInstallOpenBtn)
     Button btn;
     @BindView(R.id.SelectTypeUploadBtn)

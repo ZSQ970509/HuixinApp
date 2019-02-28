@@ -33,6 +33,8 @@ import com.hc.android.huixin.util.LogUtil;
 import com.hc.android.huixin.util.PreferenceUtil;
 import com.king.photo.activity.LadderControlDeviceChoosePlace;
 import com.king.photo.model.AttendanceProjectModel;
+import com.king.photo.model.AutoHistroyModel;
+import com.king.photo.model.AutoSubmitModel;
 import com.king.photo.model.CabineModel;
 import com.king.photo.model.DriverModel;
 import com.king.photo.model.ErrorMsgModel;
@@ -74,8 +76,9 @@ public class NetworkApi {
     //private static final String HOST_URL = "http://192.168.1.186:5066";//外面工建测试用
     //private static final String ATTENDANCE_URL = "http://ad.jsqqy.com/Handler/MobileAppsHandler.ashx";
     //private static final String ATTENDANCE_URL = "http://192.168.1.186:8086/Handler/MobileAppsHandler.ashx";
-
-    public static final String HOST_AUTO_URL = "http://10.1.3.226:8080/api/";
+   // public static final String HOST_AUTO_URL = "http://10.1.3.87:8081/api/";
+    public static final String HOST_AUTO_URL = "http://10.1.3.182:8081/api/";//瑞龙
+    //public static final String HOST_AUTO_URL = "http://10.1.3.226:8080/api/";//健择本机
     public static final String HOST_URL_UPLOAD_IMAGE = "http://ftp.jsqqy.com:8021";// 正式上传图片
     private static final String HOST_URL = "http://api.jsqqy.com";// 正式
     //private static final String HOST_URL = "http://10.1.3.33:8093";
@@ -643,6 +646,12 @@ public class NetworkApi {
                     return;
                 }
                 try {
+
+
+
+
+
+
                     JSONArray dataArray = new JSONArray(result);
                     JSONObject json = dataArray.getJSONObject(0);
                     if (json.getString("UserAccount").equals(name)) {
@@ -3617,10 +3626,10 @@ public class NetworkApi {
     /**
      * 根据ID获取自动验收记录
      *
-     * @param projectId
+     * @param id
      */
-    public static void getAutoRecordList(Activity activity, String projectId, String token, NetCall netCall) {
-        autoGetToken(activity, NetworkApi.HOST_AUTO_URL + "checkAccept/get/" + projectId, null, token, netCall);
+    public static void getAutoRecordList(Activity activity, String id, String token, NetCall netCall) {
+        autoGetToken(activity, NetworkApi.HOST_AUTO_URL + "checkAccept/get/" + id, null, token, netCall);
     }
 
     /**
@@ -3639,32 +3648,25 @@ public class NetworkApi {
      *
      * @param
      */
-    public static void submitAuto(Activity activity, SendDataBean data, final NetCall netCall) {
+    public static void submitAuto(Activity activity, AutoSubmitModel data, String token, final NetCall netCall) {
         JSONObject param = new JSONObject();
+
         try {
-            param.put("ProjectId", data.ProjectId);
-            param.put("Imgstr", data.ImgstrDev);//设备照片（用户选中否则为空）
-            param.put("ImgstrAculvert", data.ImgstrAculvert);//工程图片
-            param.put("Note", data.Note);
-            param.put("UserName", data.UserName);
-            param.put("userid", PreferenceUtil.getUserId());
-            param.put("ProjectName", data.ProjectName);
-            param.put("Type", data.Type);
-            param.put("ProjcLat", data.ProjcLat);
-            param.put("ProjcLng", data.ProjcLng);
-            param.put("Province", PreferenceUtil.getProvince());
-            param.put("CameraId", data.CameraId);
-            param.put("Progress", data.Progress);
-            param.put("IsSaveLocation", data.IsSaveLocation);
-            param.put("payid", data.payId);
-            param.put("typeid", data.projectTypeId);
-            param.put("ispay", data.ispay);
-            param.put("removeId", data.removeId);
-            param.put("ResponsibilitySubject", data.ResponsibilitySubject);
+            param.put("lat", PreferenceUtil.getProjectLat());
+            param.put("lng", PreferenceUtil.getProjectLng());//设备照片（用户选中否则为空）
+            param.put("projectId", data.getProjectId());//工程图片
+            param.put("userId", PreferenceUtil.getUserId());
+            param.put("userName",  PreferenceUtil.getUserName());
+            param.put("userAccount", PreferenceUtil.getName());
+            JSONArray params = new JSONArray();
+            for (String deviceId:data.getDeviceIds()) {
+                params.put(Integer.parseInt(deviceId));
+            }
+            param.put("deviceIds", params);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        postJson(activity, HOST_AUTO_URL + "checkAccept/submit", param, netCall);
+        postJsonToken(activity, HOST_AUTO_URL + "checkAccept/submit", param, token,netCall);
     }
     public static void autoGet(final Activity activity, final String url, HashMap<String, String> params, final NetCall call) {
         StringBuilder data = new StringBuilder();
@@ -3674,7 +3676,39 @@ public class NetworkApi {
         }
         autoGet(activity, url + data, call);
     }
-
+    public static void autoGet(final Activity activity, final String url, final NetCall call) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("网络", "请求接口：" + url);
+                final String result = HttpUtil.getFromUrlNoLog(url);
+                Log.e("网络", "\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                Log.e("网络", "" + url);
+                Log.e("网络", "" + result);
+                Log.e("网络", "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+                try {
+                    JSONObject json = new JSONObject(result);
+                    final boolean resultSuccess = json.getBoolean("success");
+                    final String resultCode = json.getString("code");
+                    final String msg = json.getString("message");
+                    final String data = json.getString("data");
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (resultSuccess || resultCode.equals("200")) {
+                                call.onSuccess(data);
+                            } else {
+                                call.onFail("错误代码：" + msg + "," + msg);
+                            }
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    call.onFail("网络异常");
+                }
+            }
+        }).start();
+    }
     public static void autoGetToken(final Activity activity, final String url, HashMap<String, String> params, String token, final NetCall call) {
         StringBuilder data = new StringBuilder();
         if (params != null) {
@@ -3685,38 +3719,48 @@ public class NetworkApi {
         }
         autoGetToken(activity, url + data, token, call);
     }
-    public static void postJson(final Activity activity, final String url, final JSONObject params, final NetCall netCall) {
+
+    public static void autoGetToken(final Activity activity, final String url, final String token, final NetCall call) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Log.i("网络", "请求接口：" + url + params.toString());
-                final String result = HttpUtil.postToUrlNoLog(url, params.toString());
+                Log.i("网络", "请求接口：" + url);
+                final String result = HttpUtil.getFromUrlNoLogToken(url, token);
                 Log.e("网络", "\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                Log.e("网络", "" + url + params.toString());
+                Log.e("网络", "" + url);
                 Log.e("网络", "" + result);
                 Log.e("网络", "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
                 try {
-                    JSONObject json = new JSONObject(result);
-                    final String resultCode = json.getString("result");
-                    final String msg = json.getString("msg");
+                    final JSONObject jsons = new JSONObject(result);
+                    //final boolean resultSuccess = json.getBoolean("success");
+                    final String resultCode = jsons.getString("code");
+
                     activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if (TextUtils.isEmpty(result) || resultCode.equals("0")) {
-                                netCall.onFail(msg);
-                            } else {
-                                netCall.onSuccess(result);
+                            try {
+                                if (resultCode.equals("200") ) {
+                                    String json =jsons.get("data").toString().equals("null")?"":jsons.get("data").toString();
+                                    call.onSuccess(json);
+                                } else {
+                                    call.onFail("错误代码：" + resultCode + "," + jsons.getString("message"));
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
+
+
+
+
                         }
                     });
                 } catch (Exception e) {
                     e.printStackTrace();
-
+                    call.onFail("网络异常");
                 }
             }
         }).start();
     }
-
     public static void get(final Activity activity, final String url, HashMap<String, String> params, final NetCall call) {
         StringBuilder data = new StringBuilder();
         for (String key : params.keySet()) {
@@ -3759,49 +3803,46 @@ public class NetworkApi {
             }
         }).start();
     }
-
-    public static void autoGet(final Activity activity, final String url, final NetCall call) {
+    public static void postJson(final Activity activity, final String url, final JSONObject params, final NetCall netCall) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Log.i("网络", "请求接口：" + url);
-                final String result = HttpUtil.getFromUrlNoLog(url);
+                Log.i("网络", "请求接口：" + url + params.toString());
+                final String result = HttpUtil.postToUrlNoLog(url, params.toString());
                 Log.e("网络", "\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                Log.e("网络", "" + url);
+                Log.e("网络", "" + url + params.toString());
                 Log.e("网络", "" + result);
                 Log.e("网络", "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
                 try {
                     JSONObject json = new JSONObject(result);
-                    final boolean resultSuccess = json.getBoolean("success");
-                    final String resultCode = json.getString("code");
-                    final String msg = json.getString("message");
-                    final String data = json.getString("data");
+                    final String resultCode = json.getString("result");
+                    final String msg = json.getString("msg");
                     activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if (resultSuccess || resultCode.equals("200")) {
-                                call.onSuccess(data);
+                            if (TextUtils.isEmpty(result) || resultCode.equals("0")) {
+                                netCall.onFail(msg);
                             } else {
-                                call.onFail("错误代码：" + msg + "," + msg);
+                                netCall.onSuccess(result);
                             }
                         }
                     });
                 } catch (Exception e) {
                     e.printStackTrace();
-                    call.onFail("网络异常");
+
                 }
             }
         }).start();
     }
 
-    public static void autoGetToken(final Activity activity, final String url, final String token, final NetCall call) {
+    public static void postJsonToken(final Activity activity, final String url, final JSONObject params, final String token,final NetCall netCall) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Log.i("网络", "请求接口：" + url);
-                final String result = HttpUtil.getFromUrlNoLogToken(url, token);
+                Log.i("网络", "请求接口：" + url + params.toString());
+                final String result = HttpUtil.postToUrlNoLogToken(url, params.toString(),token);
                 Log.e("网络", "\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                Log.e("网络", "" + url);
+                Log.e("网络", "" + url + params.toString());
                 Log.e("网络", "" + result);
                 Log.e("网络", "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
                 try {
@@ -3813,13 +3854,11 @@ public class NetworkApi {
                         @Override
                         public void run() {
                             try {
-                                if (resultCode.equals("200")) {
-
-                                    String json = jsons.get("data").toString();
-
-                                    call.onSuccess(json);
+                                if (resultCode.equals("200") ) {
+                                    String json =jsons.get("data").toString().equals("null")?"":jsons.get("data").toString();
+                                    netCall.onSuccess(json);
                                 } else {
-                                    call.onFail("错误代码：" + resultCode + "," + jsons.getString("message"));
+                                    netCall.onFail("错误代码：" + resultCode + "," + jsons.getString("message"));
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -3832,11 +3871,12 @@ public class NetworkApi {
                     });
                 } catch (Exception e) {
                     e.printStackTrace();
-                    call.onFail("网络异常");
+
                 }
             }
         }).start();
     }
+
 
     public interface NetCall {
         void onSuccess(String result);

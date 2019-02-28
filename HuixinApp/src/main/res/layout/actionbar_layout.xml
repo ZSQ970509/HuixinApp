@@ -19,7 +19,7 @@
             android:paddingBottom="15dp"
             android:paddingTop="15dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/btn_back_bg" />
+            android:src="@drawable/btn_back" />
 
         <TextView
             android:id="@+id/actionbar_mid_tv"
@@ -42,13 +42,23 @@
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
-        <ImageView
-            android:id="@+id/actionbar_right_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
+        <LinearLayout
+            android:id="@+id/actionbar_right_ll"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
             android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/activity_horizontal_margin" />
+            android:layout_alignParentRight="true">
+            <ImageView
+                android:id="@+id/actionbar_right_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+
     </RelativeLayout>
 </FrameLayout>

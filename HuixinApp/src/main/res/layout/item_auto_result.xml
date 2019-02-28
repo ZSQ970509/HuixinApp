@@ -1,10 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/y150"
+    android:layout_height="@dimen/y120"
     android:orientation="horizontal"
     android:background="@android:color/white">
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/textView_Auto_Result_Name"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="6"
@@ -21,6 +21,7 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/ImageView_Auto_Result_Video"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/autobingo"
@@ -35,6 +36,7 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/ImageView_Auto_Result_JiGuang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/autobingo"
@@ -48,6 +50,7 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/ImageView_Auto_Result_control"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/autobingo"

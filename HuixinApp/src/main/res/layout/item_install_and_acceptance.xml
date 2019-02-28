@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y80"
+    android:background="@android:color/white"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="@dimen/x260"
+        android:layout_height="wrap_content"
+        android:text="2018-12-18 16:24:55"
+        android:textColor="#000"
+        android:layout_marginLeft="@dimen/x20"
+        android:textSize="@dimen/y28" />
+
+    <TextView
+        android:layout_width="@dimen/x145"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView_Auto_Histroy_Install"
+        android:layout_toEndOf="@+id/textView_Auto_Histroy_Install"
+        android:layout_toRightOf="@+id/textView_Auto_Histroy_Install"
+        android:text="上传验收单"
+        android:textColor="#398de3"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/x20"
+        android:textSize="@dimen/y28" />
+
+    <TextView
+        android:layout_width="@dimen/x120"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView_Auto_Histroy_Install"
+        android:layout_toEndOf="@+id/textView_Auto_Histroy_Install"
+        android:layout_toRightOf="@+id/textView_Auto_Histroy_Install"
+        android:text="郑书强强"
+        android:textColor="#000"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/x20"
+        android:textSize="@dimen/y28" />
+
+    <TextView
+        android:layout_width="@dimen/x90"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView_Auto_Histroy_Install"
+        android:layout_toEndOf="@+id/textView_Auto_Histroy_Install"
+        android:layout_toRightOf="@+id/textView_Auto_Histroy_Install"
+        android:text="已撤销"
+        android:textColor="@color/gray"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/x20"
+        android:textSize="@dimen/y28" />
+</LinearLayout>

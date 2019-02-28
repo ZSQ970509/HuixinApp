@@ -66,10 +66,15 @@ public class PermissionsSettingsActivity extends Activity implements View.OnClic
 
         return location;
 
-    }
 
+}
     // 设置监听器，自动更新的最小时间为间隔N秒(1秒为1*1000，这样写主要为了方便)或最小位移变化超过N米
     public final LocationListener mLocationListener01 = new LocationListener() {
+
+
+
+
+
         @Override
         public void onLocationChanged(Location location) {
             updateToNewLocation(location);

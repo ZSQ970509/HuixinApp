@@ -116,8 +116,8 @@ public class TakePhoto2MainActivity extends Activity {
 					item.id = data.get(i).id;
 					item.name = data.get(i).text;
 					item.imageId = R.drawable.icon_installation_open;
-					item.jumpActivity = AutoCheckBeforeAcceptanceSelectProjectActivity.class;
-					//item.jumpActivity = TakePhotoInstallOpenSelectProActivity.class;
+					//item.jumpActivity = AutoCheckBeforeAcceptanceSelectProjectActivity.class;
+					item.jumpActivity = TakePhotoInstallOpenSelectProActivity.class;
 					//item.jumpActivity = TakePhoto2Activity.class;
 					moduleList.add(item);
 					

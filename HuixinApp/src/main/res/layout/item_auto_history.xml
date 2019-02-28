@@ -3,7 +3,8 @@
     android:layout_height="@dimen/y150"
     android:background="@android:color/white">
     <TextView
-        android:id="@+id/textView_Auto_Submit_Project"
+        android:id="@+id/textView_Auto_Histroy_Project"
+        style="@style/tvRollStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -16,28 +17,27 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView_Auto_Submit_Install"
+        android:id="@+id/textView_Auto_Histroy_Install"
         android:layout_width="@dimen/x360"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_Auto_Submit_Project"
+        android:layout_below="@+id/textView_Auto_Histroy_Project"
         android:text="监控时间：2018-12-18 16:24:55"
         android:textColor="#000"
         android:layout_margin="@dimen/y20"
         android:textSize="@dimen/y24" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView_Auto_Histroy_State"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView_Auto_Submit_Install"
-        android:layout_toEndOf="@+id/textView_Auto_Submit_Install"
-        android:layout_toRightOf="@+id/textView_Auto_Submit_Install"
+        android:layout_alignBottom="@+id/textView_Auto_Histroy_Install"
+        android:layout_toEndOf="@+id/textView_Auto_Histroy_Install"
+        android:layout_toRightOf="@+id/textView_Auto_Histroy_Install"
         android:text="完成"
         android:textColor="#000"
         android:textSize="@dimen/y24" />
 
     <ImageView
-        android:id="@+id/item_Auto_Submit_CheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/video_detail_right"

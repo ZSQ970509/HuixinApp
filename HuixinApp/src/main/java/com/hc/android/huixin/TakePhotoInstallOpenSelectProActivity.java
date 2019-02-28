@@ -116,6 +116,7 @@ public class TakePhotoInstallOpenSelectProActivity extends BaseActivity {
         });
     }
 
+
     @Override
     protected void initData(Intent intent) {
 
@@ -159,7 +160,7 @@ public class TakePhotoInstallOpenSelectProActivity extends BaseActivity {
     }
 
     private void searchPro() {
-        for (int i = (pageIndex - 1) * pageSize; i < pageIndex * pageSize && i < mProjectListDataSum.size(); i++) {
+        for (int i  = (pageIndex - 1) * pageSize; i < pageIndex * pageSize && i < mProjectListDataSum.size(); i++) {
             mProjectListData.add(mProjectListDataSum.get(i));
         }
         mAdapter.notifyDataSetChanged();

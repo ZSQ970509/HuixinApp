@@ -26,6 +26,7 @@
         android:background="@drawable/checkboxblue"
         android:layout_centerVertical="true"
         android:button="@null"
+        android:clickable="false"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/x35"/>
 
